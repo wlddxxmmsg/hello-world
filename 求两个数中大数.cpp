@@ -7,6 +7,6 @@ int main(){
 	  m = x;
 	else
 	  m = y;
-	printf("max: %d\n", m);
+	printf("max: %f\n", m);
 	return 0;
 } 
