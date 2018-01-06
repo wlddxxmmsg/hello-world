@@ -1,19 +1,17 @@
-#include<stdio.h>
-int main(){
-	int n,i,a[n],j,k;
-	scanf("%d/n",&n);
-	for(i=0;i<=n;i++)
-	scanf("%d",&a[i]);
-	for(i=0;i<n-1;i++){
-		for(j=0;j<n-1-i;j++){
-			if(a[j]>a[j+1]){
-				k=a[j];
-				a[j]=a[j+1];
-				a[j+1]=k;
-			}
-		}
+#include <stdio.h>
+int n,a[23333];
+int main() {
+	scanf("%d",&n);
+	for(int i = 1 ; i <= n ; ++i) scanf("%d",&a[i]);
+	for(int i = 1 ; i < n ; ++i) {
+		int min = i;
+		for(int j = 1+i ; j <= n ; ++j)
+			if(a[min] > a[j]) min = j;
+		int tmp = a[min];
+		for(int j = min-1 ; j >= i ; --j) a[j+1] = a[j];
+		a[i] = tmp;
+		for(int j = 1 ; j <= n ; ++j) printf("%d ",a[j]);
+		printf("\n");
 	}
-	for(i=0;i<n;i++)
-	printf("%d",a[i]); 
-	return 0;
 }
+
